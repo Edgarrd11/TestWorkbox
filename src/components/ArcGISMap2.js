@@ -27,6 +27,7 @@ const ArcGISMap2 = ({ darkMode }) => {
       url: "https://services6.arcgis.com/cdylwBTTDF2F9FTY/ArcGIS/rest/services/CAPA_PROYECTOS/FeatureServer"
     });
 
+
     // Agregar las capas al mapa
     map.add(municipiosLayer);
     map.add(proyectosLayer);
@@ -44,11 +45,10 @@ const ArcGISMap2 = ({ darkMode }) => {
   return (
     <>
       <div className='max-w-7xl mx-auto px-4 py-6 mt-16'>
-        <div id="arcgisMapDiv2" style={{ width: '100%', height: '100vh' }}></div>
         <div className={`top-10 left-10 ${darkMode ? 'dark:bg-[#0D0D0D] text-white' : 'bg-white text-black'} p-4 shadow-lg z-50 rounded`}>
-            <h1 className="text-lg font-bold mb-2">Gráfica 1 – Comparativa población entre hombres y mujeres por
-            edad (Capa de Municipios)</h1>
+            <h1 className="text-lg font-bold mb-2">Gráfica 1 – Comparativa población entre hombres y mujeres por edad (Capa de Municipios)</h1>
         </div>
+        <div id="arcgisMapDiv2" style={{ width: '100%', height: '100vh' }}></div>
       </div>
     </>
   );
