@@ -1,17 +1,17 @@
-import React from 'react';
-import './App.css';
-import Navbar from './components/Navbar';
-import ArcGISMap from './components/ArcGISMap';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar'; // Asegúrate de que la ruta sea correcta
+import ArcGISMap from './components/ArcGISMap'; // Asegúrate de que la ruta sea correcta
 
-function App() {
+const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className="App bg-gray-100 dark:bg-gray-950 dark:text-gray-300 min-h-screen">
-      <Navbar />
-      <div className="h-screen">
-        <ArcGISMap></ArcGISMap>
-      </div>
+    <div className={darkMode ? 'dark' : ''}>
+      <div className="mt-16"></div>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <ArcGISMap darkMode={darkMode} />
     </div>
   );
-}
+};
 
 export default App;
