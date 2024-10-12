@@ -3,7 +3,7 @@ import logo from '../img/LogoProsperia.webp'; // Asegúrate de que la ruta sea c
 
 function Navbar({ darkMode, setDarkMode }) {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-[#0D0D0D] shadow-md dark:shadow-lg z-50">
+    <nav className="fixed top-0 left-0 w-full bg-white bg-opacity-70 dark:bg-[#0D0D0D] dark:bg-opacity-100 shadow-md dark:shadow-lg z-50">
       <div className="max-w-8xl mx-auto px-4 mb-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 text-center w-full sm:w-auto">

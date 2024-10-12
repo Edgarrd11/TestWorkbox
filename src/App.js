@@ -7,7 +7,7 @@ const App = () => {
 
   return (
     <>
-      <div className={darkMode ? 'dark bg-black' : ''}>
+      <div className={darkMode ? 'dark bg-zinc-800 ' : 'bg-[#F2F0E9]'}>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <div className='dark'>
           <div className="mt-16"></div>
