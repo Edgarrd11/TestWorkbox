@@ -101,6 +101,93 @@ const FeatureLayerDisplay = () => {
           outStatisticFieldName: "sum_female_80_84",
           statisticType: "sum"
         },
+        // Male
+        {
+            onStatisticField: "POB86", // Población masculina de 0 a 4 años
+            outStatisticFieldName: "sum_male_0_4",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB109", // Población masculina de 5 a 9 años
+            outStatisticFieldName: "sum_male_5_9",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB110", // Población masculina de 10 a 14 años
+            outStatisticFieldName: "sum_male_10_14",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB111", // Población masculina de 15 a 19 años
+            outStatisticFieldName: "sum_male_15_19",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB112", // Población masculina de 20 a 24 años
+            outStatisticFieldName: "sum_male_20_24",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB113", // Población masculina de 25 a 29 años
+            outStatisticFieldName: "sum_male_25_29",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB114", // Población masculina de 30 a 34 años
+            outStatisticFieldName: "sum_male_30_34",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB115", // Población masculina de 35 a 39 años
+            outStatisticFieldName: "sum_male_35_39",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB116", // Población masculina de 40 a 44 años
+            outStatisticFieldName: "sum_male_40_44",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB117", // Población masculina de 45 a 49 años
+            outStatisticFieldName: "sum_male_45_49",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB118", // Población masculina de 50 a 54 años
+            outStatisticFieldName: "sum_male_50_54",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB119", // Población masculina de 55 a 59 años
+            outStatisticFieldName: "sum_male_55_59",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB99", // Población masculina de 60 a 64 años
+            outStatisticFieldName: "sum_male_60_64",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB120", // Población masculina de 65 a 69 años
+            outStatisticFieldName: "sum_male_65_69",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB121", // Población masculina de 70 a 74 años
+            outStatisticFieldName: "sum_male_70_74",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB122", // Población masculina de 60 a 64 años
+            outStatisticFieldName: "sum_male_75_79",
+            statisticType: "sum"
+        },
+        {
+            onStatisticField: "POB123", // Población masculina de 60 a 64 años
+            outStatisticFieldName: "sum_male_80_84",
+            statisticType: "sum"
+        },
+
       ];
 
       // Ejecutar la consulta
