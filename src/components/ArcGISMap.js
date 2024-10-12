@@ -64,7 +64,7 @@ const ArcGISMap = ({ darkMode }) => {
 
   return (
     <>
-      <div className='max-w-7xl mx-auto px-4 py-6'>
+      <div className='max-w-7xl mx-auto  px-4 py-6'>
       <div className={`top-10 left-10 ${darkMode ? 'dark:bg-[#0D0D0D] text-white' : 'bg-white text-black'} p-4 shadow-lg z-50 rounded`}>
         <h2 className="text-lg font-bold mb-2">Selecciona las Capas:</h2>
         <div className="flex items-center mb-2">
