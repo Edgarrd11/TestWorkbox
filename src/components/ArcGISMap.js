@@ -24,7 +24,11 @@ const ArcGISMap = () => {
   }, []);
 
   return (
-    <div id="arcgisMapDiv" style={{ width: '100%', height: '100vh' }}></div>
+    <>
+        <div className='max-w-7xl mx-auto px-4'>
+            <div id="arcgisMapDiv" style={{ width: '100%', height: '100vh' }}></div>
+        </div>
+    </>
   );
 };
 
