@@ -6,11 +6,15 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className={darkMode ? 'dark' : ''}>
-      <div className="mt-16"></div>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <ArcGISMap darkMode={darkMode} />
-    </div>
+    <>
+      <div className={darkMode ? 'dark bg-black' : ''}>
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <div className='dark'>
+          <div className="mt-16"></div>
+            <ArcGISMap darkMode={darkMode} />
+          </div>
+      </div>
+    </>
   );
 };
 
