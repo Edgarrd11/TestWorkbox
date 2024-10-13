@@ -1,56 +1,74 @@
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
+// HorizontalBarChart.js
+import React from "react";
+import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
-// Registrar los componentes necesarios de Chart.js
-ChartJS.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
+// Registrar los componentes que se usarán en Chart.js
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const HorizontalBarChart = () => {
-  // Definir los datos del gráfico
+  // Datos de ejemplo
+  const malePopulation = [1000, 2000, 1500, 3000, 2500, 1800, 2200, 2700, 1900, 2300, 1200, 1000, 800, 500, 300, 100];
+  const femalePopulation = [950, 2100, 1400, 2900, 2400, 1700, 2300, 2600, 2000, 2400, 1100, 900, 700, 400, 200, 80];
+
+  // Rango de edad (0 a 85 en intervalos de 5 años)
+  const ageLabels = Array.from({ length: 18 }, (_, i) => `${i * 5} - ${i * 5 + 4}`);
+
+  // Datos del gráfico
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May'],
+    labels: ageLabels,
     datasets: [
       {
-        label: 'Dataset 1',
-        data: [65, 59, 80, 81, 56],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 2,
+        label: "Población Masculina",
+        data: malePopulation,
+        backgroundColor: "rgba(54, 162, 235, 0.6)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        borderWidth: 1,
+        // Se ajusta el `barThickness` para mantener el tamaño de las barras
+        barThickness: 15,
       },
       {
-        label: 'Dataset 2',
-        data: [28, 48, 40, 19, 86],
-        backgroundColor: 'rgba(153, 102, 255, 0.2)',
-        borderColor: 'rgba(153, 102, 255, 1)',
-        borderWidth: 2,
-      },
-    ],
+        label: "Población Femenina",
+        data: femalePopulation.map(value => -value), // Invertir los valores para mostrar en el lado derecho
+        backgroundColor: "rgba(255, 99, 132, 0.6)",
+        borderColor: "rgba(255, 99, 132, 1)",
+        borderWidth: 1,
+        // Se ajusta el `barThickness` para mantener el tamaño de las barras
+        barThickness: 15,
+      }
+    ]
   };
 
-  // Configuración del gráfico
-  const config = {
-    indexAxis: 'y', // Hacer el gráfico horizontal
+  // Opciones del gráfico
+  const options = {
+    indexAxis: 'y', // Hace que las barras sean horizontales
     responsive: true,
-    elements: {
-      bar: {
-        borderWidth: 2,
-      },
-    },
     plugins: {
       legend: {
-        position: 'right',
+        position: "top",
       },
       title: {
         display: true,
-        text: 'Chart.js Horizontal Bar Chart',
+        text: "Comparación de Población Masculina vs Femenina (0 a 85 años)",
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        // Configura la escala para mostrar las barras en lados opuestos
+        ticks: {
+          callback: function(value) {
+            return Math.abs(value); // Mostrar valores absolutos en los ticks
+          }
+        }
       },
     },
   };
 
   return (
-    <div>
-      <h2>Horizontal Bar Chart</h2>
-      <Bar data={data} options={config} />
+    <div style={{ width: "600px", margin: "0 auto" }}>
+      <h2>Comparación de Población</h2>
+      <Bar data={data} options={options} />
     </div>
   );
 };
