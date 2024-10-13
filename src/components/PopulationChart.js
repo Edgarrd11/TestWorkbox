@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
+import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 
 // Registrar los componentes necesarios de Chart.js
@@ -10,6 +11,57 @@ function PopulationChart() {
     female: [],
     male: []
   });
+
+  // Rango de edad (0 a 85 en intervalos de 5 años)
+  const ageLabels = Array.from({ length: 18 }, (_, i) => `${i * 5} - ${i * 5 + 4}`);
+
+  // Datos del gráfico
+  const data = {
+    labels: ageLabels,
+    datasets: [
+      {
+        label: "Población Masculina",
+        data: populationData.male.length ? populationData.male : [], // Usar populationData.male
+        backgroundColor: "rgba(54, 162, 235, 0.6)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        borderWidth: 1,
+        barThickness: 15,
+      },
+      {
+        label: "Población Femenina",
+        data: populationData.female.length ? populationData.female.map(value => -value) : [], // Usar populationData.female
+        backgroundColor: "rgba(255, 99, 132, 0.6)",
+        borderColor: "rgba(255, 99, 132, 1)",
+        borderWidth: 1,
+        barThickness: 15,
+      }
+    ]
+  };
+
+  // Opciones del gráfico
+  const options = {
+    indexAxis: 'y', // Hace que las barras sean horizontales
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Comparación de Población Masculina vs Femenina (0 a 85 años)",
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: {
+          callback: function(value) {
+            return Math.abs(value); // Mostrar valores absolutos en los ticks
+          }
+        }
+      },
+    },
+  };
 
   useEffect(() => {
     const layerUrl = 'https://services6.arcgis.com/cdylwBTTDF2F9FTY/ArcGIS/rest/services/BCS/FeatureServer';
@@ -81,7 +133,7 @@ function PopulationChart() {
             stat.sum_female_70_74 || 0, 
             stat.sum_female_75_79 || 0, 
             stat.sum_female_80_84 || 0
-          ]);
+          ]).flat(); // Aplanar el array
 
           const malePopulation = stats.map(stat => [
             stat.sum_male_0_4 || 0, 
@@ -101,38 +153,35 @@ function PopulationChart() {
             stat.sum_male_70_74 || 0, 
             stat.sum_male_75_79 || 0, 
             stat.sum_male_80_84 || 0
-          ]);
+          ]).flat(); // Aplanar el array
 
-          // Establecer los datos en el estado
           setPopulationData({
             female: femalePopulation,
             male: malePopulation
           });
 
-          // Imprimir en consola los arrays de población
-          console.log('Población Femenina:', femalePopulation);
-          console.log('Población Masculina:', malePopulation);
+          // Verificar los datos establecidos en el estado
+          console.log('Datos establecidos en el estado:', {
+            female: femalePopulation,
+            male: malePopulation
+          });
         })
         .catch((error) => {
-          console.error('Error fetching population data:', error);
-          setPopulationData({
-            female: [],
-            male: []
-          });
+          console.error("Error al consultar datos de población:", error);
         });
     }
 
-    queryPopulationByAgeGroup(); // Llamar a la función para ejecutar la consulta
-
+    queryPopulationByAgeGroup();
   }, []);
 
   return (
-    <div>
-      <h2>Datos de Población:</h2>
-      <h3>Población Femenina</h3>
-      <pre>{JSON.stringify(populationData.female, null, 2)}</pre>
-      <h3>Población Masculina</h3>
-      <pre>{JSON.stringify(populationData.male, null, 2)}</pre>
+    <div style={{ width: "600px", margin: "0 auto" }}>
+      <h2>Comparación de Población</h2>
+      {populationData.male.length && populationData.female.length ? (
+        <Bar data={data} options={options} />
+      ) : (
+        <p>Cargando datos...</p>
+      )}
     </div>
   );
 }

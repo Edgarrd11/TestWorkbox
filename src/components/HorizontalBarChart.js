@@ -8,6 +8,20 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const HorizontalBarChart = () => {
   // Datos de ejemplo
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   const malePopulation = [1000, 2000, 1500, 3000, 2500, 1800, 2200, 2700, 1900, 2300, 1200, 1000, 800, 500, 300, 100];
   const femalePopulation = [950, 2100, 1400, 2900, 2400, 1700, 2300, 2600, 2000, 2400, 1100, 900, 700, 400, 200, 80];
 

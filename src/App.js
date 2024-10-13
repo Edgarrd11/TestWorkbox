@@ -16,7 +16,7 @@ const App = () => {
           <div className="mt-16"></div>
             <ArcGISMap darkMode={darkMode} />
             <PopulationChart />
-            <HorizontalBarChart />
+            
             <ArcGISMap2 darkMode={darkMode}/>
           </div>
       </div>
