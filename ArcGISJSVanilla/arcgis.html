@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1,
+      maximum-scale=1,user-scalable=no" />
+
+  <title>Prosperia - Descubrimos lo oculto. Creamos lo extraordinario.</title>
+  <link rel="icon" href="https://prosperia.mx/wp-content/uploads/2023/11/cropped-Favicon-32x32.png" />
+  <link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="index.css"/>
+  <!-- Load the Chart.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://js.arcgis.com/4.30/"></script>
+
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <div class="flex flex-col h-screen">
+    <nav class="bg-white shadow-md">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 text-center w-full sm:w-auto ">
+                    <img src="../img/LogoProsperia.webp" alt="Logo" class="h-6 w-auto mx-auto sm:mx-0">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    <div id="viewDiv" class="flex-grow overflow-auto"></div>
+    <div id="chartPanel">
+      <canvas id="chart" class="chart"></canvas>
+    </div>
+    <!--Opciones-->
+    <!-- <div class="flex">
+    <div class=" hiddentop-10 left-10 bg-white p-4 shadow-lg z-50 rounded mx-4">
+      <h2 class="text-lg font-bold mb-2">Selecciona las Capas:</h2>
+      <div class="flex items-center mb-2">
+          <input type="checkbox" id="layerMunicipios" class="form-checkbox h-5 w-5 text-blue-600" checked>
+          <label for="layer1" class="ml-2">Municipios</label>
+      </div>
+      <div class="flex items-center mb-2">
+          <input type="checkbox" id="layerProyectos" class="form-checkbox h-5 w-5 text-blue-600" checked>
+          <label for="layer2" class="ml-2">Proyectos</label>
+      </div> -->
+ 
+
+  
+</div>
+
+
+</html>
